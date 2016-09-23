@@ -23,9 +23,9 @@ endif
 LIB=ar rc
 RANLIB=ranlib
 
-NAME =test_project.a
+NAME =lib_test_project.a
 
-LIB=unit_test/lib_unit_test.a
+LIB_UNIT_TEST=../unit_test/lib_unit_test.a
 
 I_DIR= -I inc/ -I ../unit_test/inc
 
@@ -44,7 +44,10 @@ OBJS= $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 
 .PHONY : all clean fclean re
 
-all : $(NAME)
+all :
+			make -C ../unit_test
+			make -j $(NAME)
+
 
 ifeq ($(DEBUG),yes)
 				@echo "Generation mode debug"
@@ -52,7 +55,7 @@ else
 				@echo "Generation mode release"
 endif
 
-$(NAME):$(OBJS)
+$(NAME):$(OBJS) #$(LIB_UNIT_TEST)
 				$(LIB) $@ $^
 				$(RANLIB) $(NAME)
 

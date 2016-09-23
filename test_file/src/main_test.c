@@ -6,5 +6,6 @@ int   main(void)
   ut_fail();
   ut_success();
   ut_print();
+  ft_putstr("test libft\n");
   return (0);
 }
