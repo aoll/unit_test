@@ -31,11 +31,11 @@ O_DIR= obj
 
 MKDIR = mkdir
 
-VPATH= src/output:../src/test_file
+VPATH= src/output:../test_file/src
 
 C_PUT=ut_success.c ut_fail.c
 
-C_TEST_FILE=
+C_TEST_FILE= tu_print.c
 
 OBJS= $(C_PUT:%.c=$(O_DIR)/%.o) $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 

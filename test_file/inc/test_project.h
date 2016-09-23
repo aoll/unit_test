@@ -9,12 +9,12 @@
 /*
  * INCLUDE
  */
-
-#include <stdio.h>
+#include "unit_test.h"
 
 /*
  * PROTOTYPE
  */
 
+void ut_print(void);
 
 # endif
