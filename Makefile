@@ -25,7 +25,7 @@ RANLIB=ranlib
 
 NAME =lib_unit_test.a
 
-I_DIR= -I inc/ -I ../test_file/inc
+I_DIR= -I inc/ -I ../test_file/inc -I../../libft/inc
 
 O_DIR= obj
 
