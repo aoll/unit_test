@@ -23,21 +23,23 @@ endif
 LIB=ar rc
 RANLIB=ranlib
 
-NAME =lib_unit_test.a
+NAME =test_project.a
 
-I_DIR= -I inc/ -I../../libft/inc
+LIB=unit_test/lib_unit_test.a
+
+I_DIR= -I inc/ -I ../unit_test/inc
 
 O_DIR= obj
 
 MKDIR = mkdir
 
-VPATH= src/output
+VPATH= src
 
-C_PUT=ut_success.c ut_fail.c
+# C_PUT=ut_success.c ut_fail.c
 
-# C_TEST_FILE= tu_print.c
+C_TEST_FILE= tu_print.c
 
-OBJS= $(C_PUT:%.c=$(O_DIR)/%.o) $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
+OBJS= $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 
 
 .PHONY : all clean fclean re
