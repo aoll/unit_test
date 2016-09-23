@@ -10,6 +10,7 @@
  * INCLUDE
  */
 #include "unit_test.h"
+#include "project.h"
 
 /*
  * PROTOTYPE

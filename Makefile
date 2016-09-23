@@ -35,7 +35,6 @@ VPATH= src/output
 
 C_PUT=ut_success.c ut_fail.c
 
-# C_TEST_FILE= tu_print.c
 
 OBJS= $(C_PUT:%.c=$(O_DIR)/%.o) $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 
@@ -53,8 +52,6 @@ endif
 $(NAME):$(OBJS)
 				$(LIB) $@ $^
 				$(RANLIB) $(NAME)
-
-# %.o: libft.h -I
 
 $(O_DIR)/%.o: %.c
 				$(CC) $(CFLAGS) $(I_DIR) -o $@ -c $<
