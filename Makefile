@@ -25,13 +25,13 @@ RANLIB=ranlib
 
 NAME =lib_unit_test.a
 
-I_DIR= -I inc/
+I_DIR= -I inc/ -I ../test_file/inc
 
 O_DIR= obj
 
 MKDIR = mkdir
 
-VPATH= src/output:../test_file
+VPATH= src/output:../src/test_file
 
 C_PUT=ut_success.c ut_fail.c
 
