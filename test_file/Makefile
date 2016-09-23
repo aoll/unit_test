@@ -27,7 +27,7 @@ NAME =lib_test_project.a
 
 LIB_UNIT_TEST=../unit_test/lib_unit_test.a
 
-I_DIR= -I inc/ -I ../unit_test/inc
+I_DIR= -I inc/ -I ../unit_test/inc -I../../libft/inc
 
 O_DIR= obj
 
