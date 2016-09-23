@@ -31,12 +31,13 @@ O_DIR= obj
 
 MKDIR = mkdir
 
-VPATH= src/output
+VPATH= src/output:src/test_file
 
 C_PUT=ut_success.c ut_fail.c
 
+C_TEST_FILE= ok.c
 
-OBJS= $(C_PUT:%.c=$(O_DIR)/%.o)
+OBJS= $(C_PUT:%.c=$(O_DIR)/%.o) $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 
 
 .PHONY : all clean fclean re

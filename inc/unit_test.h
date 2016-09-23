@@ -12,6 +12,10 @@
 
 #include <stdio.h>
 
+/*
+ * PROTOTYPE
+ */
+
 void ut_fail(void);
 void ut_success(void);
 
