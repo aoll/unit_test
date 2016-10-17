@@ -2,6 +2,6 @@
 
 void ut_success(void)
 {
-  printf("%s\n", "the test is succed !!");
+  printf("%s", "\033[32m+");
   return;
 }

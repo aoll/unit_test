@@ -2,6 +2,6 @@
 
 void ut_fail(void)
 {
-  printf("%s\n", "the test is fail");
+  printf("%s", "\033[31m-");
   return;
 }

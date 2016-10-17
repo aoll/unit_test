@@ -17,15 +17,20 @@ CC=gcc
 ifeq ($(DEBUG), yes)
 				CFLAGS= -Wall -Wextra -g -ansi -pedantic
 else
-		CFLAGS= -Wall -Wextra -Werror
+		CFLAGS= -Wall -Wextra
 endif
 
 LIB=ar rc
 RANLIB=ranlib
 
+AR = ar
+ARFLAGS = rcs
+
 NAME =lib_unit_test.a
 
-I_DIR= -I inc/ -I../../libft/inc
+LIBFT = ../../libft/libft.a
+
+I_DIR= -I inc/ -I../../inc -I../../libft/inc
 
 O_DIR= obj
 
@@ -33,15 +38,17 @@ MKDIR = mkdir
 
 VPATH= src/output
 
-C_PUT=ut_success.c ut_fail.c
+C_PUT=ut_success.c ut_fail.c ut_name_function_tested.c
 
 
-OBJS= $(C_PUT:%.c=$(O_DIR)/%.o) $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
+OBJS= $(C_PUT:%.c=$(O_DIR)/%.o) #$(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 
 
 .PHONY : all clean fclean re
 
-all : $(NAME)
+all :
+			make -C ../../libft
+			make -j $(NAME)
 
 ifeq ($(DEBUG),yes)
 				@echo "Generation mode debug"
@@ -49,12 +56,11 @@ else
 				@echo "Generation mode release"
 endif
 
-$(NAME):$(OBJS)
-				$(LIB) $@ $^
-				$(RANLIB) $(NAME)
+$(NAME):$(OBJS) $(LIBFT)
+				$(AR) $(ARFLAGS)  $@ $^
 
 $(O_DIR)/%.o: %.c
-				$(CC) $(CFLAGS) $(I_DIR) -o $@ -c $<
+				$(CC) $(CFLAGS) $(I_DIR) -c $< -o $@
 
 $(OBJS): | $(O_DIR)
 

@@ -17,13 +17,18 @@ CC=gcc
 ifeq ($(DEBUG), yes)
 				CFLAGS= -Wall -Wextra -g -ansi -pedantic
 else
-		CFLAGS= -Wall -Wextra -Werror
+		CFLAGS= -Wall -Wextra
 endif
 
 LIB=ar rc
 RANLIB=ranlib
 
+AR = ar
+ARFLAGS = rcs
+
 NAME =lib_test_project.a
+
+LIBFT = ../../libft/libft.a
 
 LIB_UNIT_TEST=../unit_test/lib_unit_test.a
 
@@ -35,9 +40,8 @@ MKDIR = mkdir
 
 VPATH= src
 
-# C_PUT=ut_success.c ut_fail.c
 
-C_TEST_FILE= tu_print.c
+C_TEST_FILE= ut_print.c
 
 OBJS= $(C_TEST_FILE:%.c=$(O_DIR)/%.o)
 
@@ -55,9 +59,9 @@ else
 				@echo "Generation mode release"
 endif
 
-$(NAME):$(OBJS) #$(LIB_UNIT_TEST)
-				$(LIB) $@ $^
-				$(RANLIB) $(NAME)
+$(NAME):$(OBJS) $(LIBFT) $(LIB_UNIT_TEST)
+				$(AR) $(ARFLAGS) $@ $^
+
 
 # %.o: libft.h -I
 
