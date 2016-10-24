@@ -12,7 +12,7 @@
 
 
 DEBUG=no
-CC=gcc
+CC=clang
 
 ifeq ($(DEBUG), yes)
 				CFLAGS= -Wall -Wextra -g -ansi -pedantic
