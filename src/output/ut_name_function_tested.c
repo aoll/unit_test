@@ -24,5 +24,7 @@ void ut_name_function_tested(char *name_function_tested)
   }
   printf("%s", name_function_tested);
   printf("%s", str_padding_space);
+  if (str_padding_space)
+    free(str_padding_space);
   return;
 }
